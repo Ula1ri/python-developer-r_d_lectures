@@ -14,5 +14,5 @@ if some_text.isdigit():
     else:
         print("This number is odd")
 else:
-    some_text = (len(some_text))
-    print("This word have",some_text,"letter")
+    some_text = len(some_text)
+    print(f'This word have {some_text} letter')
