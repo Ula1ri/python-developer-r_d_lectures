@@ -5,8 +5,7 @@
 # це “символ”
 
 s = input('Write me something, please: ')
-z = list(s)
-for item in z:
+for item in s:
     if item.isdigit():
         item = int(item)
         if item % 2 == 0:
