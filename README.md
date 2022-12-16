@@ -1,2 +1,2 @@
 # python-developer-r_d_lectures
-# version lecture2++
+# version: in progress
