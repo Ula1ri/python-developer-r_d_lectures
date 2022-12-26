@@ -19,7 +19,8 @@ phone_book = {
     'Peter': '+123456792',
 }
 while True:
-    input_data = input('What do you wish, my lord?: ')  # format "command name number" commands: ststs, add, delete, list, show.
+    input_data = input('What do you wish, my lord?: ')  # format "command name number" commands: stats, add, delete,
+    # list, show
     split_input = input_data.split()
 
     command = split_input[0]
@@ -29,11 +30,13 @@ while True:
     if command == 'stats':
         print(len(phone_book))
     elif command == 'add':
-        phone_book[name] = number
+        phone_book.update({name: number})
     elif command == 'delete':
-        phone_book.pop(name)
+        if name == phone_book.keys():
+            del phone_book[name]
     elif command == 'list':
-        for item in phone_book:
-            print(item)
+        for key in phone_book.items():
+            print(key)
     elif command == 'show':
-        print(phone_book[name])
+        if name == phone_book.keys():
+            print(phone_book[name])
