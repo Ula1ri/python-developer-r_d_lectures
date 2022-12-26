@@ -32,11 +32,11 @@ while True:
     elif command == 'add':
         phone_book.update({name: number})
     elif command == 'delete':
-        if name == phone_book.keys():
-            del phone_book[name]
+        if name in phone_book.keys():
+            phone_book.pop(name)
     elif command == 'list':
-        for key in phone_book.items():
+        for key in phone_book.keys():
             print(key)
     elif command == 'show':
-        if name == phone_book.keys():
+        if name in phone_book:
             print(phone_book[name])
