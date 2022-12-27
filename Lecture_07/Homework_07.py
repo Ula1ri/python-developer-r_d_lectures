@@ -30,7 +30,8 @@ while True:
     if command == 'stats':
         print(len(phone_book))
     elif command == 'add':
-        phone_book.update({name: number})
+        if name is not phone_book.keys():
+            phone_book[name] = number
     elif command == 'delete':
         if name in phone_book.keys():
             phone_book.pop(name)
