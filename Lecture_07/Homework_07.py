@@ -19,7 +19,7 @@ phone_book = {
     'Peter': '+123456792',
 }
 while True:
-    input_data = input('What do you wish, my lord?: ')  # format "command name number" commands: stats, add, delete,
+    input_data = input('Please, enter new command: ')  # format "command name number" commands: stats, add, delete,
     # list, show
     split_input = input_data.split()
 
@@ -30,7 +30,9 @@ while True:
     if command == 'stats':
         print(len(phone_book))
     elif command == 'add':
-        if name is not phone_book.keys():
+        if name in phone_book.keys():
+            print('This name is already in use, please enter another one')
+        else:
             phone_book[name] = number
     elif command == 'delete':
         if name in phone_book.keys():
