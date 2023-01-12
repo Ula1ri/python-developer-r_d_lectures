@@ -24,8 +24,10 @@ while True:
     split_input = input_data.split()
 
     command = split_input[0]
-    name = split_input[1]
-    number = split_input[2]
+    if len(split_input) > 1:
+        name = split_input[1]
+    if len(split_input) > 2:
+        number = split_input[2]
 
     if command == 'stats':
         print(len(phone_book))
