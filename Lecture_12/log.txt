@@ -1,0 +1,132 @@
+Function called
+Function <built-in function open> is called at 2023-01-17 18:25:16.722309
+
+Function <built-in function open> is called at 2023-01-17 18:25:58.861643
+
+Function <built-in function open> is called at 2023-01-17 18:26:14.889243
+
+Function <class 'Exception'> is called at 2023-01-17 18:56:31.555200
+
+Function <built-in function open> is called at 2023-01-17 18:56:31.556200
+
+Function <class 'Exception'> is called at 2023-01-17 18:57:21.135071
+
+Function <built-in function open> is called at 2023-01-17 18:57:21.136069
+
+Function <class 'Exception'> is called at 2023-01-17 18:58:48.533191
+
+Function <built-in function open> is called at 2023-01-17 18:58:48.534190
+
+Function <class 'Exception'> is called at 2023-01-17 19:03:22.141276
+
+Function <built-in function open> is called at 2023-01-17 19:03:22.141276
+
+Function <class 'Exception'> is called at 2023-01-17 21:30:32.403898
+
+Function <built-in function open> is called at 2023-01-17 21:30:32.404896
+
+Function <class 'Exception'> is called at 2023-01-17 21:30:41.164978
+
+Function <built-in function open> is called at 2023-01-17 21:30:41.165977
+
+Function <class 'Exception'> is called at 2023-01-17 21:31:23.275231
+
+Function <built-in function open> is called at 2023-01-17 21:31:23.276233
+
+Function <class 'Exception'> is called at 2023-01-17 21:31:49.799188
+
+Function <built-in function open> is called at 2023-01-17 21:31:49.799188
+
+Function <class 'Exception'> is called at 2023-01-17 21:31:53.082191
+
+Function <built-in function open> is called at 2023-01-17 21:31:53.084193
+
+Function <class 'Exception'> is called at 2023-01-17 21:32:09.767097
+
+Function <built-in function open> is called at 2023-01-17 21:32:09.767097
+
+Function <class 'Exception'> is called at 2023-01-17 21:32:52.363204
+
+Function <built-in function open> is called at 2023-01-17 21:32:52.363204
+
+Function <class 'Exception'> is called at 2023-01-17 21:34:00.370075
+
+Function <built-in function open> is called at 2023-01-17 21:34:00.374078
+
+Function <class 'Exception'> is called at 2023-01-17 22:08:00.476005
+
+Function <built-in function open> is called at 2023-01-17 22:08:00.476005
+
+Function <class 'Exception'> is called at 2023-01-17 22:08:55.811951
+
+Function <built-in function open> is called at 2023-01-17 22:08:55.811951
+
+Function <built-in function open> is called at 2023-01-17 22:09:09.664955
+
+Function <built-in function open> is called at 2023-01-17 22:10:32.961289
+
+Function <built-in function open> is called at 2023-01-17 22:10:36.995990
+
+Function <class 'Exception'> is called at 2023-01-17 22:12:56.315119
+
+Function <built-in function open> is called at 2023-01-17 22:12:56.326129
+
+Function <class 'Exception'> is called at 2023-01-18 12:25:14.074903
+
+Function <built-in function open> is called at 2023-01-18 12:25:14.075903
+
+Function <class 'Exception'> is called at 2023-01-18 12:28:59.549377
+
+Function <built-in function open> is called at 2023-01-18 12:28:59.550376
+
+Function <class 'Exception'> is called at 2023-01-18 12:33:42.726921
+
+Function <built-in function open> is called at 2023-01-18 12:33:42.726921
+
+Function <class 'Exception'> is called at 2023-01-18 14:53:06.535655
+
+Function <built-in function open> is called at 2023-01-18 14:53:06.536660
+
+Function <class 'Exception'> is called at 2023-01-18 14:57:34.402544
+
+Function <built-in function open> is called at 2023-01-18 14:57:34.403543
+
+Function <class 'Exception'> is called at 2023-01-18 14:58:21.146784
+
+Function <built-in function open> is called at 2023-01-18 14:58:21.147784
+
+Function <class 'Exception'> is called at 2023-01-18 14:58:25.006155
+
+Function <built-in function open> is called at 2023-01-18 14:58:25.006155
+
+Function <class 'Exception'> is called at 2023-01-18 14:58:26.014292
+
+Function <built-in function open> is called at 2023-01-18 14:58:26.014292
+
+Function <class 'Exception'> is called at 2023-01-18 14:59:05.095625
+
+Function <built-in function open> is called at 2023-01-18 14:59:05.095625
+
+Function <class 'Exception'> is called at 2023-01-18 14:59:32.149847
+
+Function <built-in function open> is called at 2023-01-18 14:59:32.150848
+
+Function <class 'Exception'> is called at 2023-01-18 15:00:19.610491
+
+Function <built-in function open> is called at 2023-01-18 15:00:19.611491
+
+Function <class 'Exception'> is called at 2023-01-18 15:04:27.540990
+
+Function <class 'Exception'> is called at 2023-01-18 15:09:52.322099
+
+Function <class 'Exception'> is called at 2023-01-18 15:13:10.203313
+
+Function <class 'Exception'> is called at 2023-01-18 15:13:44.887764
+
+Function <class 'Exception'> is called at 2023-01-18 15:16:35.434311
+
+Function <class 'Exception'> is called at 2023-01-18 15:31:34.978985
+
+Function <class 'Exception'> is called at 2023-01-18 15:35:31.982875
+
+Function <class 'Exception'> is called at 2023-01-18 15:50:03.657278
