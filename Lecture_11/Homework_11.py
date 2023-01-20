@@ -40,9 +40,7 @@ def my_deco_log(func):
     def wrap(*args, **kwargs):
         with MyContextManager():
             print(f'Function {func} is called at {datetime.now()}')
-            func(*args, **kwargs)
             return func(*args, **kwargs)
-            raise MyCustomException('Custom exception is occurred')
     return wrap
 
 
