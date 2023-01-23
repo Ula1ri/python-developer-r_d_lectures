@@ -15,24 +15,24 @@ from datetime import datetime
 
 class MyCustomException(Exception):
     with open('log.txt', 'a') as log_file:
-        print(f'\nFunction {Exception} is called at {datetime.now()}', file=log_file) # записуємо в log.txt виклик функції
+        print(f'\nFunction {Exception} is called at {datetime.now()}', file=log_file)  # записуємо в log.txt виклик функції
     pass
 
 def my_deco(func):
     def wrap(*args, **kwargs):
         with open('log.txt', 'a') as log_file:
-            print(f'\nFunction {open} is called at {datetime.now()}', file=log_file) # записуємо в log.txt виклик функції
-        func(*args, **kwargs)
-        return func(*args, **kwargs)
+            print(f'\nFunction {func} is called at {datetime.now()}', file=log_file)  # записуємо в log.txt виклик функції
+        result = func(*args, **kwargs)
+        return result
     wrap
 
 @my_deco
 def my_func():
     print('my_func')
 
-with open('json_dict.txt',) as phone_data: #Зчитємо дані з файла
+with open('json_dict.json', 'r') as phone_data:  # Зчитємо дані з файла
     phone_file = phone_data.read()
-    phone_book = json.loads(phone_file) # перетворюємо jsonstring в dict
+    phone_book = json.loads(phone_file)  # перетворюємо jsonstring в dict
 while True:
     input_data = input('Please, enter new command: ')  # format "command name number" commands: stats, add, delete,
     # list, show
