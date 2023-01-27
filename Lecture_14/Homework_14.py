@@ -17,23 +17,14 @@ while True:
     if len(split_input) > 2:
         number = split_input[2]
 
-        match1 = re.findall(r"\+380\d{9}(?=[, ]|$)", number)
-        print(match1)
-        match2 = re.findall(r"380\d{9}(?=[, ]|$)", number)
-        print(match2)
-        match3 = re.findall(r"0\d{9}(?=[, ]|$)", number)
-        print(match3)
+        match = re.findall(r"(?:\+?38|8)?0\d{9}(?=[, ]|$)", number)
 
     if command == 'stats':
         print(len(phone_book))
     elif command == 'add':
         if name in phone_book.keys():
             print('This name is already in use, please enter another one')
-        elif match1:
-            phone_book[name] = number
-        elif match2:
-            phone_book[name] = number
-        elif match3:
+        elif match:
             phone_book[name] = number
         else:
             print(f'{number} number is incorrect')
