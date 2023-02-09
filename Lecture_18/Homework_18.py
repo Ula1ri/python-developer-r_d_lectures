@@ -2,13 +2,14 @@ class Bot:
     def __init__(self, name,):
         self.name = name
     def say_name(self, name):
-        return Bot(self.say_name)
+        print(self.name)
     def send_message(self, message):
-        return Bot(self.send_message())
+        print(message)
 
 
 class TelegramBot(Bot):
-    def __init__(self, url, chat_id):
+    def __init__(self, name, url=None, chat_id=None):
+        super.__init__(name)
         self.url = url
         self.chat_id = chat_id
     def send_massage(self, message):
@@ -19,7 +20,7 @@ class TelegramBot(Bot):
         print(url)
     def set_chat_id(self, chat_id):
         self.chat_id = chat_id
-        print(f'TG bot says{message} to chat {chat_id} using {url}')
+        print(f'TG bot says{message} to chat {self.chat_id} using {self.url}')
 
 some_bot = Bot('Marvin')
 some_bot.say_name()
