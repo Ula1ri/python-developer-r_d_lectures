@@ -21,15 +21,14 @@ class TelegramBot(Bot):
     def set_chat_id(self, chat_id):
         self.chat_id = chat_id
 
+
+
 some_bot = Bot('Marvin')
-
 some_bot.say_name(Bot)
-
 some_bot.send_message("Hello")
+
 telegram_bot = TelegramBot("TG")
-
 telegram_bot.say_name(TelegramBot)
-
 telegram_bot.send_message('Hello')
 
 telegram_bot.set_chat_id(1)
