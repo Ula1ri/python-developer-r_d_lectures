@@ -1,0 +1,13 @@
+CREATE DATABASE personal;
+CREATE TABLE users(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+first_name VARCHAR NOT NULL,
+last_name VARCHAR NOT NULL,
+age INTEGER DEFAULT 18);
+
+INSERT users( first_name, last_name, age) VALUES ('Petro', 'Pokis', 41)
+INSERT users( first_name, last_name, age) VALUES ('Vasul', 'Struna', 19)
+INSERT users( first_name, last_name, age) VALUES ('Ivan', 'Rebro', 86)
+INSERT users( first_name, last_name, age) VALUES ('Taras', 'Zagas', 65)
+INSERT users( first_name, last_name, age) VALUES ('Bogdan', 'Redka', 56)
+INSERT users( first_name, last_name, age) VALUES ('Pavlo', 'Muska', 32)
