@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>My First Flask App</title>
+  </head>
+  <body>
+    {% if 'name' in session %}
+    <p>Hello, {{ session['name'] }}</p>
+    {% else %}
+    <p>Please login to continue</p>
+    {% endif %}
+        <p>Welcome to my First Flask app!</p>
+  </body>
+</html>
