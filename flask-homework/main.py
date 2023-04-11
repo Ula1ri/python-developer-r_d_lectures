@@ -1,10 +1,32 @@
 import logging
-from flask import Flask, request, redirect, render_template, url_for, session
+from flask import Flask, request, redirect, render_template, url_for, session, jsonify
 import secrets
 import random
+import os
+from os import getenv
+from dotenv import load_dotenv
+from flask_sqlalchemy import SQLAlchemy
+from models import User
+
+# Завантажую значення секретного ключа
+load_dotenv()
+db = SQLAlchemy()
 
 app = Flask(__name__)
-app.secret_key = secrets.token_hex(16)
+
+app.secret_key = os.getenv('SECRET_KEY')
+db_url = os.getenv('SQLALCHEMY_DATABASE_URI')
+flask_app_host = os.getenv('FLASK_APP_HOST')
+app.config['SQLALCHEMY_DATABASE_URI'] = db_url
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+
+db.init_app(app)
+
+from models import *
+
+with app.app_context():
+    db.create_all()
 
 names = ['Besil', 'Petro', 'Taras', 'Franklin', 'Michael', 'Trevor']
 random.shuffle(names)
@@ -44,7 +66,8 @@ def index():
 @app.route('/users', methods=['GET'])
 def get_users():
     if 'name' in session:
-        return render_template('users.html', name=session['name'], names=names)
+        users = User.query.all()
+        return jsonify([user.serialize() for user in users])
     else:
         return redirect(url_for('login'))
 
@@ -53,9 +76,9 @@ def get_users():
 @app.route('/users/<int:id>', methods=['GET'])
 def get_user_by_id(id):
     if 'name' in session:
-        if id % 2 == 0:
-            name = session['name']
-            return render_template('user.html', id=id, name=name)
+        user = User.query.filter_by(id=id).first()
+        if user:
+            return jsonify(user.serialize())
         else:
             return 'Not found', 404
     else:
@@ -65,7 +88,8 @@ def get_user_by_id(id):
 @app.route('/books', methods=['GET'])
 def get_books():
     if 'name' in session:
-        return render_template('books.html', name=session['name'], books=books)
+        books = Books.query.all()
+        return jsonify([books.serialize() for books in books])
     else:
         return redirect(url_for('login'))
 
@@ -73,9 +97,11 @@ def get_books():
 @app.route('/books/<title>', methods=['GET'])
 def get_book_by_title(title):
     if 'name' in session:
-        name = session['name']
-        transformed_title = title.capitalize()
-        return render_template('book.html', transformed_title=transformed_title, name=name)
+        book = Books.query.filter_by(title=title).first()
+        if book is not None:
+            return jsonify(book.serialize())
+        else:
+            return 'Book not found', 404
     else:
         return redirect(url_for('login'))
 
@@ -90,6 +116,25 @@ def get_params():
             params_table += f'<tr><td>{key}</td><td>{value}</td></tr>'
         params_table += '</table>'
         return render_template('params.html', params_table=params_table, name=name)
+    else:
+        return redirect(url_for('login'))
+    
+@app.route('/purchases', methods=['GET'])
+def get_purchases():
+    if 'name' in session:
+        purchases = Purchases.query.all()
+        return jsonify([purchase.serialize() for purchase in purchases])
+    else:
+        return redirect(url_for('login'))
+
+@app.route('/purchases/<int:id>', methods=['GET'])
+def get_purchase_by_id(id):
+    if 'name' in session:
+        purchase = Purchases.query.get(id)
+        if purchase:
+            return jsonify(purchase.serialize())
+        else:
+            return 'Not found', 404
     else:
         return redirect(url_for('login'))
 
