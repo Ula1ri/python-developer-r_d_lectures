@@ -1,7 +1,8 @@
 from django.http import HttpResponse, JsonResponse
-from .models import User
+from .models import Book
+
 
 def my_view(request):
-    users = User.objects.all()
-    data = {'users': list(users.values())}
+    books = Book.objects.all()
+    data = {'books': list(books.values())}
     return JsonResponse(data)
