@@ -1,8 +1,18 @@
-from django.http import HttpResponse, JsonResponse
 from .models import Book
+from django.views.generic import ListView, CreateView, DetailView
+from .forms import BookForm
 
 
-def my_view(request):
-    books = Book.objects.all()
-    data = {'books': list(books.values())}
-    return JsonResponse(data)
+class BookListView(ListView):
+    model = Book
+
+
+class BookDetailView(DetailView):
+    model = Book
+
+
+class BookCreateView(CreateView):
+    model = Book
+    success_url = '/book'
+    form_class = BookForm
+
