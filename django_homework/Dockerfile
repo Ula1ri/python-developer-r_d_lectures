@@ -4,7 +4,7 @@ WORKDIR /data
 
 COPY requirements.txt .
 
-RUN pip install -r reqiurements.txt
+RUN pip install -r requirements.txt
 
 COPY . .
 
