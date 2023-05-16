@@ -1,0 +1,82 @@
+version: "3.8"
+
+services:
+  app:
+    image: Ula1ri/my-django:latest
+    command: gunicorn --bind :8000 --worker 3 -t 60 my_web_app:wsgi:application
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+    env_file:
+      - .env
+    networks:
+      - broker_network
+      - nginx_network
+      - database_network
+
+  celery_worker:
+    image: Ula1ri/my-django:latest
+    command: celery -A my-django worker
+    restart: always
+    depends_on:
+      - database
+    env_file:
+      - .env
+    networks:
+      - broker_network
+      - database_network
+
+  celery_beat:
+    image: Ula1ri/my-django:latest
+    command: celery -A my-django beat
+    restart: always
+    depends_on:
+      - database
+    env_file:
+      - .env
+    networks:
+      - broker_network
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    networks:
+      - nginx_network
+    depends_on:
+      - app
+
+  database:
+    image: postgres:14-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=ulairi
+      - POSTGRES_PASSWORD=ulairi
+      - POSTGRES_DB=ulairi
+    networks:
+      - database_network
+
+  broker:
+    image: redis:6.0.4-alpine
+    networks:
+      - broker_network
+    volumes:
+      - broker_data:/data
+
+networks:
+  broker_network:
+    name: broker_network
+    driver: bridge
+  nginx_network:
+    name: nginx_network
+    driver: bridge
+  database_network:
+    name: database_network
+    driver: bridge
+
+volumes:
+  broker_data:
+  postgres_data:
