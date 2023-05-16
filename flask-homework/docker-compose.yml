@@ -1,0 +1,51 @@
+version: "3.8"
+
+services:
+  flask-app:
+    image: Ula1ri/my-flask:latest
+    command: gunicorn --bind 0.0.0.0:4200
+    restart: always
+    ports:
+      - "4200:4200"
+    depends_on:
+      - database
+    env_file:
+      - .env
+    networks:
+      - broker_network
+      - nginx_network
+      - database_network
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    networks:
+      - nginx_network
+    depends_on:
+      - app
+
+  database:
+    image: postgres:14-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=ulairi
+      - POSTGRES_PASSWORD=ulairi
+      - POSTGRES_DB=ulairi
+    networks:
+      - database_network
+
+networks:
+  broker_network:
+    name: broker_network
+    driver: bridge
+  nginx_network:
+    name: nginx_network
+    driver: bridge
+  database_network:
+    name: database_network
+    driver: bridge
+
+volumes:
+   postgres_data:
